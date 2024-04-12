@@ -42,6 +42,10 @@ public sealed class GameEngine
     }
 
     public void Setup(){
+
+        //Added for proper display of game characters
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+
         dynamic gameData = FileHandler.ReadJson();
         
         map.MapWidth = gameData.map.width;
@@ -51,7 +55,7 @@ public sealed class GameEngine
         {
             AddGameObject(CreateGameObject(gameObject));
         }
-
+        
         _focusedObject = gameObjects.OfType<Player>().First();
 
     }
