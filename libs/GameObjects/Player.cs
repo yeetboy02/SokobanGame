@@ -7,4 +7,10 @@ public class Player : GameObject {
         CharRepresentation = '☻';
         Color = ConsoleColor.DarkYellow;
     }
+
+    public override void onCollision(GameObject gameObject) {
+        if (gameObject.Type == GameObjectType.Obstacle) {
+            Console.WriteLine("You hit an obstacle!");
+        }
+    }
 }

@@ -68,4 +68,6 @@ public class GameObject : IGameObject, IMovement
         _posX += dx;
         _posY += dy;
     }
+
+    virtual public void onCollision(GameObject obj);
 }
