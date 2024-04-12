@@ -1,8 +1,19 @@
 namespace libs;
 
-public class Player : GameObject {
+public sealed class Player : GameObject {
+    private static Player _instance = null;
 
-    public Player () : base(){
+    public static Player Instance {
+        get{
+            if(_instance == null)
+            {
+                _instance = new Player();
+            }
+            return _instance;
+        }
+    }
+
+    private Player () : base(){
         Type = GameObjectType.Player;
         CharRepresentation = '☻';
         Color = ConsoleColor.DarkYellow;
