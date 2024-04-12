@@ -62,7 +62,9 @@ public class Map {
         if (prevPosX >= 0 && prevPosX < _mapWidth &&
                 prevPosY >= 0 && prevPosY < _mapHeight)
         {
-            GameObjectLayer[prevPosY, prevPosX] = new Floor();
+            if (GameObjectLayer[prevPosY, prevPosX] is Floor) {
+                GameObjectLayer[prevPosY, prevPosX] = new Floor();
+            }
         }
 
         if (posX >= 0 && posX < _mapWidth &&

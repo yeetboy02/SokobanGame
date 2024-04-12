@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {
+    "net7.0": {
       "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
@@ -50,34 +50,35 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net8.0": [
+    "net7.0": [
       "Newtonsoft.Json >= 13.0.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\A200002851\\.nuget\\packages\\": {}
+    "/Users/lukas/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\A200002851\\OneDrive - Deutsche Telekom AG\\Projects\\lesson07\\libs\\libs.csproj",
+      "projectUniqueName": "/Users/lukas/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/CD/SokobanGame/libs/libs.csproj",
       "projectName": "libs",
-      "projectPath": "C:\\Users\\A200002851\\OneDrive - Deutsche Telekom AG\\Projects\\lesson07\\libs\\libs.csproj",
-      "packagesPath": "C:\\Users\\A200002851\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\A200002851\\OneDrive - Deutsche Telekom AG\\Projects\\lesson07\\libs\\obj\\",
+      "projectPath": "/Users/lukas/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/CD/SokobanGame/libs/libs.csproj",
+      "packagesPath": "/Users/lukas/.nuget/packages/",
+      "outputPath": "/Users/lukas/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/CD/SokobanGame/libs/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\A200002851\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/lukas/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net8.0"
+        "net7.0"
       ],
       "sources": {
+        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "projectReferences": {}
         }
       },
@@ -85,16 +86,11 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
-      "net8.0": {
-        "targetAlias": "net8.0",
+      "net7.0": {
+        "targetAlias": "net7.0",
         "dependencies": {
           "Newtonsoft.Json": {
             "target": "Package",
@@ -117,7 +113,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.200/RuntimeIdentifierGraph.json"
       }
     }
   }
