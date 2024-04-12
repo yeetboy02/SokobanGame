@@ -70,6 +70,10 @@ public class Map {
         if (posX >= 0 && posX < _mapWidth &&
                 posY >= 0 && posY < _mapHeight)
         {
+            if (GameObjectLayer[posY, posX] != null && GameObjectLayer[posY, posX] != gameObject) {
+                gameObject.onCollision(GameObjectLayer[posY, posX]);
+                GameObjectLayer[posY, posX].onCollision(gameObject);
+            }
             GameObjectLayer[posY, posX] = gameObject;
             RepresentationalLayer[gameObject.PosY, gameObject.PosX] = gameObject.CharRepresentation;
         }
