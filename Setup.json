@@ -213,6 +213,13 @@
       "Color": 3,
       "PosX": 9,
       "PosY": 6
+    },
+    {
+      "Type": 4,
+      "Color": 3,
+      "PosX": 5,
+      "PosY": 2
     }
+
   ]
 }
