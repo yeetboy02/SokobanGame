@@ -1,6 +1,6 @@
 ﻿namespace libs;
 
-public class GameObject : IMovement
+public class GameObject : IGameObject, IMovement
 {
     private char _charRepresentation = '#';
     private ConsoleColor _color;
