@@ -1,0 +1,224 @@
+{
+  "map": {
+    "width": 10,
+    "height": 8 
+  },
+  "gameObjects": [
+    {
+      "Type": 1,
+      "Color": 2,
+      "PosX": 4,
+      "PosY": 7
+    },
+    {
+      "Type": 0,
+      "Color": 5,
+      "PosX": 2,
+      "PosY": 1
+    },
+    {
+      "Type": 2,
+      "Color": 6,
+      "PosX": 2,
+      "PosY": 2
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 0,
+      "PosY": 0
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 1,
+      "PosY": 0
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 2,
+      "PosY": 0
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 3,
+      "PosY": 0
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 4,
+      "PosY": 0
+    },    
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 5,
+      "PosY": 0
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 6,
+      "PosY": 0
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 7,
+      "PosY": 0
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 8,
+      "PosY": 0
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 9,
+      "PosY": 0
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 0,
+      "PosY": 7
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 1,
+      "PosY": 7
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 2,
+      "PosY": 7
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 3,
+      "PosY": 7
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 4,
+      "PosY": 7
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 5,
+      "PosY": 7
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 6,
+      "PosY": 7
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 7,
+      "PosY": 7
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 8,
+      "PosY": 7
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 9,
+      "PosY": 7
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 0,
+      "PosY": 1
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 0,
+      "PosY": 2
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 0,
+      "PosY": 3
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 0,
+      "PosY": 4
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 0,
+      "PosY": 5
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 0,
+      "PosY": 6
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 9,
+      "PosY": 1
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 9,
+      "PosY": 2
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 9,
+      "PosY": 3
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 9,
+      "PosY": 4
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 9,
+      "PosY": 5
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 9,
+      "PosY": 6
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 0,
+      "PosY": 0
+    }
+  ]
+}
