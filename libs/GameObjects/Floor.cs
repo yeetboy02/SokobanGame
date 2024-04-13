@@ -7,7 +7,7 @@ public class Floor : GameObject {
         CharRepresentation = '.';
     }
 
-    override public void onCollision(GameObject gameObject) {
+    override public void onCollision(ref GameObject gameObject) {
         // Do nothing
     }
 }

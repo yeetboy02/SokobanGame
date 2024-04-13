@@ -53,7 +53,7 @@ public class Map {
         return GameObjectLayer[x, y];
     }
 
-    public void Set(GameObject gameObject){
+    public void Set(ref GameObject gameObject){
         int posY = gameObject.PosY;
         int posX = gameObject.PosX;
         int prevPosY = gameObject.GetPrevPosY();
@@ -70,11 +70,11 @@ public class Map {
         if (posX >= 0 && posX < _mapWidth &&
                 posY >= 0 && posY < _mapHeight)
         {
-            if (GameObjectLayer[posY, posX] != null && GameObjectLayer[posY, posX] != gameObject) {
-                gameObject.onCollision(GameObjectLayer[posY, posX]);
-                GameObjectLayer[posY, posX].onCollision(gameObject);
+            if (GameObjectLayer[posY, posX] != null && GameObjectLayer[posY, posX] != gameObject && GameObjectLayer[posY, posX].Type != GameObjectType.Floor) {
+                gameObject.onCollision(ref GameObjectLayer[posY, posX]);
+                GameObjectLayer[posY, posX].onCollision(ref gameObject);
             }
-            GameObjectLayer[posY, posX] = gameObject;
+            GameObjectLayer[gameObject.PosY, gameObject.PosX] = gameObject;
             RepresentationalLayer[gameObject.PosY, gameObject.PosX] = gameObject.CharRepresentation;
         }
     }

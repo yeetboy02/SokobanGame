@@ -7,7 +7,7 @@ public class Obstacle : GameObject {
         this.Color = ConsoleColor.Cyan;
     }
 
-    public override void onCollision(GameObject gameObject) {
+    public override void onCollision(ref GameObject gameObject) {
         // Do nothing
     }
 }

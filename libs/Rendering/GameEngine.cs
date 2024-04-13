@@ -92,9 +92,33 @@ public sealed class GameEngine
 
     private void PlaceGameObjects(){
         
+        // PLACE WALLS
         gameObjects.ForEach(delegate(GameObject obj)
         {
-            map.Set(obj);
+            if (obj.Type == GameObjectType.Obstacle) {
+                map.Set(ref obj);
+            }
+        });
+        // PLACE TARGET
+        // gameObjects.ForEach(delegate(GameObject obj)
+        // {
+        //     if (obj.Type == GameObjectType.Target) {
+        //         map.Set(ref obj);
+        //     }
+        // });
+        // PLACE BOXES
+        gameObjects.ForEach(delegate(GameObject obj)
+        {
+            if (obj.Type == GameObjectType.Box) {
+                map.Set(ref obj);
+            }
+        });
+        // PLACE PLAYER
+        gameObjects.ForEach(delegate(GameObject obj)
+        {
+            if (obj.Type == GameObjectType.Player) {
+                map.Set(ref obj);
+            }
         });
     }
 

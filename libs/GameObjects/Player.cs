@@ -8,9 +8,10 @@ public class Player : GameObject {
         Color = ConsoleColor.DarkYellow;
     }
 
-    public override void onCollision(GameObject gameObject) {
+    public override void onCollision(ref GameObject gameObject) {
         if (gameObject.Type == GameObjectType.Obstacle) {
-            Console.WriteLine("You hit an obstacle!");
+            this.PosX = this.GetPrevPosX();
+            this.PosY = this.GetPrevPosY();
         }
     }
 }
