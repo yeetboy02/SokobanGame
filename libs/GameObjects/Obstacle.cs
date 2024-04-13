@@ -6,8 +6,4 @@ public class Obstacle : GameObject {
         this.CharRepresentation = '█';
         this.Color = ConsoleColor.Cyan;
     }
-
-    public override void onCollision(ref GameObject gameObject) {
-        // Do nothing
-    }
 }

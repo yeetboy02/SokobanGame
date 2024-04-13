@@ -6,8 +6,4 @@ public class Floor : GameObject {
         Type = GameObjectType.Floor;
         CharRepresentation = '.';
     }
-
-    override public void onCollision(ref GameObject gameObject) {
-        // Do nothing
-    }
 }

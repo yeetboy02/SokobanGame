@@ -19,10 +19,36 @@ public sealed class Player : GameObject {
         Color = ConsoleColor.DarkYellow;
     }
 
-    public override void onCollision(ref GameObject gameObject) {
+    public override void onCollision(GameObject gameObject, GameObject?[,] map) {
         if (gameObject.Type == GameObjectType.Obstacle) {
             this.PosX = this.GetPrevPosX();
             this.PosY = this.GetPrevPosY();
+        }
+        else if (gameObject.Type == GameObjectType.Box) {
+            bool moved = false;
+            int posX = this.PosX + (this.PosX - this.GetPrevPosX());
+            int posY = this.PosY + (this.PosY - this.GetPrevPosY());
+            while (!(map[posY, posX] is Obstacle)) {
+                if (map[posY, posX] is Floor || map[posY, posX] is Target) {
+                    while (posX != gameObject.PosX || posY != gameObject.PosY) {
+                        if (map[posY, posX] is Box) {
+                            map[posY, posX].Move(this.PosX - this.GetPrevPosX(), this.PosY - this.GetPrevPosY());
+                            break;
+                        }
+                        posX += -1 * (this.PosX - this.GetPrevPosX());
+                        posY += -1 * (this.PosY - this.GetPrevPosY());
+                    }
+                    gameObject.Move(this.PosX - this.GetPrevPosX(), this.PosY - this.GetPrevPosY());
+                    moved = true;
+                    break;
+                }
+                posX += (this.PosX - this.GetPrevPosX());
+                posY += (this.PosY - this.GetPrevPosY());
+            }
+            if (!moved) {
+                this.PosX = this.GetPrevPosX();
+                this.PosY = this.GetPrevPosY();
+            }
         }
     }
 }

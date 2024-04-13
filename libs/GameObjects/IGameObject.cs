@@ -4,5 +4,5 @@ namespace libs;
     public interface IGameObject
     {
         // IGameObject ManufactureGameObject();
-        void onCollision(ref GameObject gameObject);
+        void onCollision(GameObject gameObject, GameObject?[,] map);
     }

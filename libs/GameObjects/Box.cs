@@ -7,10 +7,4 @@ public class Box : GameObject {
         CharRepresentation = '○';
         Color = ConsoleColor.DarkGreen;
     }
-
-    public override void onCollision(ref GameObject gameObject) {
-        if (gameObject.Type == GameObjectType.Obstacle) {
-            Console.WriteLine("You hit a Box!");
-        }
-    }
 }

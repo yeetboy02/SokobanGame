@@ -91,34 +91,10 @@ public sealed class GameEngine
     }
 
     private void PlaceGameObjects(){
-        
-        // PLACE WALLS
+
         gameObjects.ForEach(delegate(GameObject obj)
         {
-            if (obj.Type == GameObjectType.Obstacle) {
-                map.Set(ref obj);
-            }
-        });
-        // PLACE TARGET
-        // gameObjects.ForEach(delegate(GameObject obj)
-        // {
-        //     if (obj.Type == GameObjectType.Target) {
-        //         map.Set(ref obj);
-        //     }
-        // });
-        // PLACE BOXES
-        gameObjects.ForEach(delegate(GameObject obj)
-        {
-            if (obj.Type == GameObjectType.Box) {
-                map.Set(ref obj);
-            }
-        });
-        // PLACE PLAYER
-        gameObjects.ForEach(delegate(GameObject obj)
-        {
-            if (obj.Type == GameObjectType.Player) {
-                map.Set(ref obj);
-            }
+            map.Set(ref obj);
         });
     }
 
@@ -135,5 +111,18 @@ public sealed class GameEngine
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.Write(' ');
         }
+    }
+
+    public void Update() {
+        // CHECK COLLISIONS
+        gameObjects.ForEach(delegate(GameObject obj)
+        {
+            if (obj.Type != GameObjectType.Floor) {
+                if (map.Get(obj.PosY, obj.PosX) is GameObject gameObject && map.Get(obj.PosY, obj.PosX) != obj && map.Get(obj.PosY, obj.PosX).Type != GameObjectType.Floor) {
+                    obj.onCollision(gameObject, map.GetMap());
+                    map.Get(obj.PosY, obj.PosX).onCollision(obj, map.GetMap());
+                }
+            }
+        });
     }
 }

@@ -19,6 +19,7 @@ class Program
             // Handle keyboard input
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
             inputHandler.Handle(keyInfo);
+            engine.Update();
         }
     }
 }

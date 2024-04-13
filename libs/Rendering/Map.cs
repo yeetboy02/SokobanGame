@@ -22,6 +22,10 @@ public class Map {
         GameObjectLayer = new GameObject[_mapHeight, _mapWidth];
     }
 
+    public GameObject?[,] GetMap(){
+        return GameObjectLayer;
+    }
+
     public void Initialize()
     {
         RepresentationalLayer = new char[_mapHeight, _mapWidth];
@@ -70,10 +74,6 @@ public class Map {
         if (posX >= 0 && posX < _mapWidth &&
                 posY >= 0 && posY < _mapHeight)
         {
-            if (GameObjectLayer[posY, posX] != null && GameObjectLayer[posY, posX] != gameObject && GameObjectLayer[posY, posX].Type != GameObjectType.Floor) {
-                gameObject.onCollision(ref GameObjectLayer[posY, posX]);
-                GameObjectLayer[posY, posX].onCollision(ref gameObject);
-            }
             GameObjectLayer[gameObject.PosY, gameObject.PosX] = gameObject;
             RepresentationalLayer[gameObject.PosY, gameObject.PosX] = gameObject.CharRepresentation;
         }
