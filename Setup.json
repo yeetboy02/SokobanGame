@@ -25,8 +25,14 @@
     {
       "Type": 2,
       "Color": 6,
-      "PosX": 2,
+      "PosX": 5,
       "PosY": 2
+    },
+    {
+      "Type": 2,
+      "Color": 6,
+      "PosX": 5,
+      "PosY": 3
     },
     {
       "Type": 1,
@@ -213,6 +219,72 @@
       "Color": 3,
       "PosX": 9,
       "PosY": 6
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 7,
+      "PosY": 2
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 8,
+      "PosY": 2
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 7,
+      "PosY": 3
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 7,
+      "PosY": 4
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 3,
+      "PosY": 3
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 3,
+      "PosY": 4
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 3,
+      "PosY": 5
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 2,
+      "PosY": 5
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 1,
+      "PosY": 5
+    },
+    {
+      "Type": 4,
+      "Color": 12,
+      "PosX": 2,
+      "PosY": 4
+    },
+    {
+      "Type": 4,
+      "Color": 12,
+      "PosX": 8,
+      "PosY": 3
     }
   ]
 }

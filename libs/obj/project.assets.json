@@ -55,25 +55,24 @@
     ]
   },
   "packageFolders": {
-    "/Users/lukas/.nuget/packages/": {}
+    "C:\\Users\\PC\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/lukas/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/CD/SokobanGame/libs/libs.csproj",
+      "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Sokoban\\SokobanGame\\libs\\libs.csproj",
       "projectName": "libs",
-      "projectPath": "/Users/lukas/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/CD/SokobanGame/libs/libs.csproj",
-      "packagesPath": "/Users/lukas/.nuget/packages/",
-      "outputPath": "/Users/lukas/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/CD/SokobanGame/libs/obj/",
+      "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Sokoban\\SokobanGame\\libs\\libs.csproj",
+      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Sokoban\\SokobanGame\\libs\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/lukas/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -86,6 +85,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -108,12 +112,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.16, 7.0.16]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[7.0.16, 7.0.16]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[7.0.16, 7.0.16]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.200/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
