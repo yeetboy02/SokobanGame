@@ -5,6 +5,10 @@ public class Map {
     private char[,] RepresentationalLayer;
     private GameObject?[,] GameObjectLayer;
 
+    public List<GameObject?[,]> history = new List<GameObject?[,]>();
+
+    public bool resetHistory = false;
+
     private int _mapWidth;
     private int _mapHeight;
 
@@ -28,17 +32,17 @@ public class Map {
 
     public void Initialize()
     {
-        RepresentationalLayer = new char[_mapHeight, _mapWidth];
-        GameObjectLayer = new GameObject[_mapHeight, _mapWidth];
 
-        // Initialize the map with some default values
-        for (int i = 0; i < GameObjectLayer.GetLength(0); i++)
-        {
-            for (int j = 0; j < GameObjectLayer.GetLength(1); j++)
+            GameObjectLayer = new GameObject[_mapHeight, _mapWidth];
+            // Initialize the map with some default values
+            for (int i = 0; i < GameObjectLayer.GetLength(0); i++)
             {
-                GameObjectLayer[i, j] = new Floor();
+                for (int j = 0; j < GameObjectLayer.GetLength(1); j++)
+                {
+                    GameObjectLayer[i, j] = new Floor();
+                }
             }
-        }
+        RepresentationalLayer = new char[_mapHeight, _mapWidth];
     }
 
     public int MapWidth
@@ -55,6 +59,22 @@ public class Map {
 
     public GameObject Get(int x, int y){
         return GameObjectLayer[x, y];
+    }
+
+    public void SaveToHistory() {
+        if (resetHistory) {
+            resetHistory = false;
+        }
+        else if (history.Count == 0 || (history[history.Count - 1] != GameObjectLayer)) {
+            history.Add(GameObjectLayer.Clone() as GameObject?[,]);
+        }
+    }
+
+    public void revertHistory() {
+        if (history.Count > 1) {
+            history.RemoveAt(history.Count - 1);
+            GameObjectLayer = history[history.Count - 1];
+        };
     }
 
     public void Set(ref GameObject gameObject){

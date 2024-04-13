@@ -40,6 +40,9 @@ public sealed class InputHandler{
                 case ConsoleKey.RightArrow:
                     focusedObject.Move(1, 0);
                     break;
+                case ConsoleKey.Z:
+                    engine.revertHistory();
+                    break;
                 default:
                     break;
             }

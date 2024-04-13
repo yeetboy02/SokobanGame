@@ -42,7 +42,6 @@ public sealed class GameEngine
     }
 
     public void Setup(){
-
         //Added for proper display of game characters
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
@@ -69,6 +68,8 @@ public sealed class GameEngine
 
         PlaceGameObjects();
 
+        map.SaveToHistory();
+
         //Render the map
         for (int i = 0; i < map.MapHeight; i++)
         {
@@ -88,6 +89,10 @@ public sealed class GameEngine
 
     public void AddGameObject(GameObject gameObject){
         gameObjects.Add(gameObject);
+    }
+
+    public void revertHistory() {
+        map.resetHistory = true;
     }
 
     private void PlaceGameObjects(){
@@ -125,6 +130,7 @@ public sealed class GameEngine
             if (obj.Type == GameObjectType.Player)
             {
                 map.Set(ref obj);
+                return;
             }
         });
     }
@@ -155,5 +161,35 @@ public sealed class GameEngine
                 }
             }
         });
+
+        if (map.resetHistory) {
+            map.revertHistory();
+
+            gameObjects.ForEach(delegate(GameObject obj)
+            {
+                if (obj is Player) {
+                    for (int i = 0; i < map.MapHeight; i++) {
+                        for (int j = 0; j < map.MapWidth; j++) {
+                            if (map.Get(i, j) is Player) {
+                                obj.PosX = j;
+                                obj.PosY = i;
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if (obj is Box) {
+                    for (int i = 0; i < map.MapHeight; i++) {
+                        for (int j = 0; j < map.MapWidth; j++) {
+                            if (map.Get(i, j) == obj) {
+                                obj.PosX = j;
+                                obj.PosY = i;
+                                break;
+                            }
+                        }
+                    }
+                }
+            });
+        }
     }
 }
