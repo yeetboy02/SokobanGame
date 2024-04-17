@@ -19,7 +19,7 @@ class Program
 
             // CHECK WIN CONDITION
             if (engine.allTargetsFilled()) {
-                endGame();
+                nextLevel();
                 break;
             }
 
@@ -30,9 +30,18 @@ class Program
         }
     }
 
-    static private void endGame() {
+    static private void nextLevel() {
+        if (currLevel == 1) endGame();
         currLevel++;
         Console.Clear();
         Main(null);
+    }
+
+    static private void endGame() {
+        Console.Clear();
+        Console.WriteLine("Congratulations! You have completed the game!");
+        Console.WriteLine("Press any key to exit...");
+        Console.ReadKey();
+        Environment.Exit(0);
     }
 }

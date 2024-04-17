@@ -77,6 +77,10 @@ public class Map {
         };
     }
 
+    public void clearHistory() {
+        history = new List<GameObject?[,]>();
+    }
+
     public void Set(ref GameObject gameObject){
         int posY = gameObject.PosY;
         int posX = gameObject.PosX;

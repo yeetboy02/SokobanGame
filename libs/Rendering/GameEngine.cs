@@ -50,6 +50,8 @@ public sealed class GameEngine
         map.MapWidth = gameData[currLevel].map.width;
         map.MapHeight = gameData[currLevel].map.height;
 
+        gameObjects = new List<GameObject>();
+
         foreach (var gameObject in gameData[currLevel].gameObjects)
         {
             AddGameObject(CreateGameObject(gameObject));
@@ -89,6 +91,10 @@ public sealed class GameEngine
 
     public void AddGameObject(GameObject gameObject){
         gameObjects.Add(gameObject);
+    }
+
+    public void RemoveGameObject(GameObject gameObject){
+        gameObjects.Remove(gameObject);
     }
 
     public void revertHistory() {
