@@ -41,16 +41,16 @@ public sealed class GameEngine
         return _focusedObject;
     }
 
-    public void Setup(){
+    public void Setup(int currLevel = 0){
         //Added for proper display of game characters
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
         dynamic gameData = FileHandler.ReadJson();
         
-        map.MapWidth = gameData.map.width;
-        map.MapHeight = gameData.map.height;
+        map.MapWidth = gameData[currLevel].map.width;
+        map.MapHeight = gameData[currLevel].map.height;
 
-        foreach (var gameObject in gameData.gameObjects)
+        foreach (var gameObject in gameData[currLevel].gameObjects)
         {
             AddGameObject(CreateGameObject(gameObject));
         }
@@ -191,5 +191,16 @@ public sealed class GameEngine
                 }
             });
         }
+    }
+
+    public bool allTargetsFilled() {
+        foreach (GameObject obj in gameObjects) {
+            if (obj is Target) {
+                if (map.Get(obj.PosY, obj.PosX).Type != GameObjectType.Box) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
