@@ -22,11 +22,17 @@ class Program
                 nextLevel();
                 break;
             }
+            
+            if(engine.GetCurrentLevel() != currLevel) {
+                engine.SetCurrentLevel(currLevel);
+            }
 
             // Handle keyboard input
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
             inputHandler.Handle(keyInfo);
             engine.Update();
+
+            
         }
     }
 
@@ -43,5 +49,9 @@ class Program
         Console.WriteLine("Press any key to exit...");
         Console.ReadKey();
         Environment.Exit(0);
+    }
+
+    public int GetCurrentLevel() {
+        return currLevel;
     }
 }

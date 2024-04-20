@@ -43,6 +43,9 @@ public sealed class InputHandler{
                 case ConsoleKey.Z:
                     engine.revertHistory();
                     break;
+                case ConsoleKey.S:
+                    engine.saveGame();
+                    break;
                 default:
                     break;
             }

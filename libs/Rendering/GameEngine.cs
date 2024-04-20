@@ -1,5 +1,8 @@
 ﻿using System.Reflection.Metadata.Ecma335;
 using System.Text.Json.Nodes;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
 
 namespace libs;
 
@@ -10,6 +13,17 @@ public sealed class GameEngine
 {
     private static GameEngine? _instance;
     private IGameObjectFactory gameObjectFactory;
+
+    private int currentGameLevel = 0;
+
+    public int GetCurrentLevel() {
+        return currentGameLevel;
+    }
+
+    public void SetCurrentLevel(int value) {
+        currentGameLevel = value;
+    }
+
 
     public static GameEngine Instance {
         get{
@@ -208,5 +222,23 @@ public sealed class GameEngine
             }
         }
         return true;
+    }
+
+    public void saveGame() {
+        List<GameObject> gameObjects = new List<GameObject>();
+
+        for (int i = 0; i < map.history.Last().GetLength(1); i++) {
+            gameObjects.Add(map.history.Last()[0,i]);
+        }
+
+        var gameState = new GameState
+            {
+               currentLevel = currentGameLevel,
+
+               gameObjects =  gameObjects
+            };
+
+       string output = JsonConvert.SerializeObject(gameState);
+       File.WriteAllText("../SavedFile.json", output);
     }
 }
