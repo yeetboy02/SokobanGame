@@ -60,13 +60,24 @@ public sealed class GameEngine
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
         dynamic gameData = FileHandler.ReadJson();
+        dynamic gameDataSaved = FileHandler.ReadJson2();
+
+
+        int? savedLevel = gameDataSaved.currentLevel;
+        var gameObjectsJSON = gameData[currentGameLevel].gameObjects;
+
+
+        if(savedLevel != null) SetCurrentLevel(savedLevel.Value);
+
+        if(savedLevel != null) gameObjectsJSON = gameDataSaved.gameObjects;
         
-        map.MapWidth = gameData[currLevel].map.width;
-        map.MapHeight = gameData[currLevel].map.height;
+        map.MapWidth = gameData[currentGameLevel].map.width;
+        map.MapHeight = gameData[currentGameLevel].map.height;
+
 
         gameObjects = new List<GameObject>();
 
-        foreach (var gameObject in gameData[currLevel].gameObjects)
+        foreach (var gameObject in gameObjectsJSON)
         {
             AddGameObject(CreateGameObject(gameObject));
         }
@@ -227,8 +238,10 @@ public sealed class GameEngine
     public void saveGame() {
         List<GameObject> gameObjects = new List<GameObject>();
 
-        for (int i = 0; i < map.history.Last().GetLength(1); i++) {
-            gameObjects.Add(map.history.Last()[0,i]);
+        for (int i = 0; i < map.MapWidth; i++) {
+            for (int j = 0; j < map.MapHeight; j++) {
+                if(!(map.history.Last()[j,i].Type == GameObjectType.Floor)) gameObjects.Add(map.history.Last()[j,i]);
+            }
         }
 
         var gameState = new GameState

@@ -1,5 +1,8 @@
 ﻿using libs;
 
+using System.Security.Cryptography;
+using Newtonsoft.Json;
+
 class Program
 {    
     static private int currLevel = 0;
@@ -11,6 +14,7 @@ class Program
         var inputHandler = InputHandler.Instance;
         
         engine.Setup(currLevel);
+        currLevel = engine.GetCurrentLevel();
 
         // Main game loop
         while (true)
@@ -19,26 +23,34 @@ class Program
 
             // CHECK WIN CONDITION
             if (engine.allTargetsFilled()) {
-                nextLevel();
+                nextLevel(engine);
                 break;
             }
             
-            if(engine.GetCurrentLevel() != currLevel) {
-                engine.SetCurrentLevel(currLevel);
-            }
-
             // Handle keyboard input
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
             inputHandler.Handle(keyInfo);
             engine.Update();
 
-            
+             
         }
     }
 
-    static private void nextLevel() {
+    static private void nextLevel(GameEngine engine) {
+        var gameState = new GameState
+            {
+               currentLevel = null,
+
+               gameObjects =  new List<GameObject>()
+            };
+
+       string output = JsonConvert.SerializeObject(gameState);
+       File.WriteAllText("../SavedFile.json", output);
+
         if (currLevel == 2) endGame();
         currLevel++;
+        engine.SetCurrentLevel(currLevel);
+
         Console.Clear();
         Main(null);
     }
