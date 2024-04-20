@@ -126,6 +126,10 @@ public sealed class GameEngine
         map.resetHistory = true;
     }
 
+    public void removeHistory() {
+        map.clearHistory();
+    }
+
     private void PlaceGameObjects(){
 
         // RENDER THE WALLS

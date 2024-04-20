@@ -31,21 +31,11 @@ class Program
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
             inputHandler.Handle(keyInfo);
             engine.Update();
-
-             
         }
     }
 
     static private void nextLevel(GameEngine engine) {
-        var gameState = new GameState
-            {
-               currentLevel = null,
-
-               gameObjects =  new List<GameObject>()
-            };
-
-       string output = JsonConvert.SerializeObject(gameState);
-       File.WriteAllText("../SavedFile.json", output);
+        engine.removeHistory();
 
         if (currLevel == 2) endGame();
         currLevel++;
