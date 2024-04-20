@@ -14,7 +14,10 @@ public sealed class GameEngine
     private static GameEngine? _instance;
     private IGameObjectFactory gameObjectFactory;
 
+    private int? initalGameLevel = 0;
     private int currentGameLevel = 0;
+
+    private bool resetGame = false;
 
     public int GetCurrentLevel() {
         return currentGameLevel;
@@ -63,13 +66,15 @@ public sealed class GameEngine
         dynamic gameDataSaved = FileHandler.ReadJson2();
 
 
-        int? savedLevel = gameDataSaved.currentLevel;
+        initalGameLevel = gameDataSaved.currentLevel;
         var gameObjectsJSON = gameData[currentGameLevel].gameObjects;
 
 
-        if(savedLevel != null) SetCurrentLevel(savedLevel.Value);
+        if(initalGameLevel != null && initalGameLevel !> currLevel) SetCurrentLevel(initalGameLevel.Value);
 
-        if(savedLevel != null) gameObjectsJSON = gameDataSaved.gameObjects;
+        if(gameDataSaved.gameObjects.Count > 0 && (initalGameLevel !> currLevel || initalGameLevel == currLevel)) {
+            gameObjectsJSON = gameDataSaved.gameObjects;
+        }
         
         map.MapWidth = gameData[currentGameLevel].map.width;
         map.MapHeight = gameData[currentGameLevel].map.height;
@@ -258,4 +263,18 @@ public sealed class GameEngine
        string output = JsonConvert.SerializeObject(gameState);
        File.WriteAllText("../SavedFile.json", output);
     }
+
+    public bool GetRestartGame() {
+        return resetGame;
+    }
+
+    public void SetRestartGame(bool restart) {
+        resetGame = restart;
+    }
+
+    public void restartGame() {
+        resetGame = true;
+    }
+
+
 }

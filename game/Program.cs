@@ -26,6 +26,11 @@ class Program
                 nextLevel(engine);
                 break;
             }
+
+            if (engine.GetRestartGame()) {
+                restartGame(engine);
+                break;
+            }
             
             // Handle keyboard input
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
@@ -46,6 +51,15 @@ class Program
     }
 
     static private void endGame() {
+        var gameState = new GameState
+        {
+            currentLevel = null,
+            gameObjects =  new List<GameObject>()
+        };
+
+        string output = JsonConvert.SerializeObject(gameState);
+        File.WriteAllText("../SavedFile.json", output);
+
         Console.Clear();
         Console.WriteLine("Congratulations! You have completed the game!");
         Console.WriteLine("Press any key to exit...");
@@ -53,7 +67,22 @@ class Program
         Environment.Exit(0);
     }
 
-    public int GetCurrentLevel() {
-        return currLevel;
+
+    static private void restartGame(GameEngine engine) {
+        var gameState = new GameState
+        {
+            currentLevel = null,
+            gameObjects =  new List<GameObject>()
+        };
+        string output = JsonConvert.SerializeObject(gameState);
+        File.WriteAllText("../SavedFile.json", output);
+
+        engine.removeHistory();
+        currLevel = 0;
+        engine.SetCurrentLevel(currLevel);
+        engine.SetRestartGame(false);
+
+        Console.Clear();
+        Main(null);
     }
 }
