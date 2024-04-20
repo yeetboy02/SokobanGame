@@ -31,7 +31,7 @@ class Program
     }
 
     static private void nextLevel() {
-        if (currLevel == 1) endGame();
+        if (currLevel == 2) endGame();
         currLevel++;
         Console.Clear();
         Main(null);
