@@ -14,20 +14,6 @@ public sealed class GameEngine
     private static GameEngine? _instance;
     private IGameObjectFactory gameObjectFactory;
 
-    private int? initalGameLevel = 0;
-    private int currentGameLevel = 0;
-
-    private bool resetGame = false;
-
-    public int GetCurrentLevel() {
-        return currentGameLevel;
-    }
-
-    public void SetCurrentLevel(int value) {
-        currentGameLevel = value;
-    }
-
-
     public static GameEngine Instance {
         get{
             if(_instance == null)
@@ -58,20 +44,42 @@ public sealed class GameEngine
         return _focusedObject;
     }
 
+    private int? initalGameLevel = 0; // initial level - gets changed if there is a saved game
+    private int currentGameLevel = 0; // tracks game level and changes once nextLevel is called in Program
+
+    // get and set for current game level int
+    public int GetCurrentLevel() {
+        return currentGameLevel;
+    }
+    public void SetCurrentLevel(int value) {
+        currentGameLevel = value;
+    }
+
+    private bool resetGame = false; // tracks restart game key press
+
+    // get and set for restartGame bool
+    public bool GetRestartGame() {
+        return resetGame;
+    }
+
+    public void SetRestartGame(bool restart) {
+        resetGame = restart;
+    }
+
+
     public void Setup(int currLevel = 0){
         //Added for proper display of game characters
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
         dynamic gameData = FileHandler.ReadJson();
-        dynamic gameDataSaved = FileHandler.ReadJson2();
+        dynamic gameDataSaved = FileHandler.ReadSavedJson();
 
-
-        initalGameLevel = gameDataSaved.currentLevel;
-        var gameObjectsJSON = gameData[currentGameLevel].gameObjects;
-
-
+        // checks whether there is a currently saved game and whether it is not bigger than the current level
+        initalGameLevel = gameDataSaved.currentLevel; 
         if(initalGameLevel != null && initalGameLevel !> currLevel) SetCurrentLevel(initalGameLevel.Value);
-
+        
+        // checks whether SETUP gameObjects or saved game gameObjects should be used
+        var gameObjectsJSON = gameData[currentGameLevel].gameObjects;
         if(gameDataSaved.gameObjects.Count > 0 && (initalGameLevel !> currLevel || initalGameLevel == currLevel)) {
             gameObjectsJSON = gameDataSaved.gameObjects;
         }
@@ -131,6 +139,7 @@ public sealed class GameEngine
         map.resetHistory = true;
     }
 
+    // for removing history once a level was completed 
     public void removeHistory() {
         map.clearHistory();
     }
@@ -246,35 +255,23 @@ public sealed class GameEngine
 
     public void saveGame() {
         List<GameObject> gameObjects = new List<GameObject>();
-
+        // iterats over all gameobjects in last item of map.history and adds them to the list if not Floor
         for (int i = 0; i < map.MapWidth; i++) {
             for (int j = 0; j < map.MapHeight; j++) {
-                if(!(map.history.Last()[j,i].Type == GameObjectType.Floor)) gameObjects.Add(map.history.Last()[j,i]);
+                if(map.history.Last()[j,i].Type != GameObjectType.Floor) gameObjects.Add(map.history.Last()[j,i]);
             }
         }
 
-        var gameState = new GameState
-            {
-               currentLevel = currentGameLevel,
-
-               gameObjects =  gameObjects
-            };
-
-       string output = JsonConvert.SerializeObject(gameState);
-       File.WriteAllText("../SavedFile.json", output);
+        // saves current level int and gameobjects in a file
+        var gameState = new GameState { currentLevel = currentGameLevel, gameObjects =  gameObjects };
+        string output = JsonConvert.SerializeObject(gameState);
+        File.WriteAllText("../SavedFile.json", output);
     }
 
-    public bool GetRestartGame() {
-        return resetGame;
-    }
 
-    public void SetRestartGame(bool restart) {
-        resetGame = restart;
-    }
-
+    // called with restart game key input (R)
     public void restartGame() {
         resetGame = true;
     }
-
 
 }

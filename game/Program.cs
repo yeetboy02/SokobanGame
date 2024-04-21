@@ -27,6 +27,7 @@ class Program
                 break;
             }
 
+            // Check for restart key press
             if (engine.GetRestartGame()) {
                 restartGame(engine);
                 break;
@@ -40,8 +41,10 @@ class Program
     }
 
     static private void nextLevel(GameEngine engine) {
+        // remove map history once level completed
         engine.removeHistory();
 
+        // end level or increse current level and set it in game engine
         if (currLevel == 2) endGame();
         currLevel++;
         engine.SetCurrentLevel(currLevel);
@@ -51,12 +54,8 @@ class Program
     }
 
     static private void endGame() {
-        var gameState = new GameState
-        {
-            currentLevel = null,
-            gameObjects =  new List<GameObject>()
-        };
-
+        // overwrite saved JSON game state 
+        var gameState = new GameState { currentLevel = null, gameObjects =  new List<GameObject>() };
         string output = JsonConvert.SerializeObject(gameState);
         File.WriteAllText("../SavedFile.json", output);
 
@@ -69,14 +68,12 @@ class Program
 
 
     static private void restartGame(GameEngine engine) {
-        var gameState = new GameState
-        {
-            currentLevel = null,
-            gameObjects =  new List<GameObject>()
-        };
+        // overwrite saved JSON game state
+        var gameState = new GameState { currentLevel = null, gameObjects =  new List<GameObject>() };
         string output = JsonConvert.SerializeObject(gameState);
         File.WriteAllText("../SavedFile.json", output);
 
+        // remove map history, set level to 0, set flag to false
         engine.removeHistory();
         currLevel = 0;
         engine.SetCurrentLevel(currLevel);
