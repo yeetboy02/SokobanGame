@@ -49,6 +49,9 @@ public sealed class InputHandler{
                 case ConsoleKey.R:
                     engine.restartGame();
                     break;
+                case ConsoleKey.E:
+                    focusedObject.createDialog();
+                    break;
                 default:
                     break;
             }

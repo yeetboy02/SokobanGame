@@ -11,7 +11,21 @@ public class GameObject : IGameObject, IMovement
     private int _prevPosX;
     private int _prevPosY;
 
+    public Dialog currDialog = null;
+
     public GameObjectType Type;
+
+    public void createDialog() {
+        DialogOption option2 = new DialogOption("TestDialog 2", null);
+        Answer[] answers = new Answer[2]{new Answer("Schnitzel", option2), new Answer("Spinatgelee", option2)};
+        DialogOption option1 = new DialogOption("TestDialog 1", answers);
+        this.currDialog = new Dialog(option1);
+        Task dialog = Task.Run(() => {
+            this.currDialog.Run();
+        });
+        dialog.Wait();
+        this.currDialog = null;
+    }
 
     public GameObject() {
         this._posX = 5;
@@ -63,10 +77,12 @@ public class GameObject : IGameObject, IMovement
     }
 
     public void Move(int dx, int dy) {
-        _prevPosX = _posX;
-        _prevPosY = _posY;
-        _posX += dx;
-        _posY += dy;
+        if (currDialog == null) {
+            _prevPosX = _posX;
+            _prevPosY = _posY;
+            _posX += dx;
+            _posY += dy;
+        }
     }
 
     virtual public void onCollision(GameObject obj, GameObject?[,] map) {
