@@ -196,6 +196,12 @@
         "Color": 3,
         "PosX": 3,
         "PosY": 4
+      },
+      {
+        "Type": 5,
+        "Color": 4,
+        "PosX": 1,
+        "PosY": 5
       }
     ]
   },

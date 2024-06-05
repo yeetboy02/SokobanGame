@@ -1,0 +1,34 @@
+[
+    {
+        "dialog": [
+            {
+                "text": "Hello there! How can I help you?",
+                "answers": [
+                    {
+                        "text": "Help me please!",
+                        "next": 1
+                    },
+                    {
+                        "text": "Get me to the last level!",
+                        "next": 2
+                    }
+                ]
+            },
+            {
+                "text": "You just have to push all the boxes over the crosses. But you can only push not pull them!",
+                "answers": null
+            },
+            {
+                "text": "No, you'll have to play the game, loser!",
+                "answers": null
+            }
+            
+        ]
+    },
+    {
+        "dialog": []
+    },
+    {
+        "dialog": []
+    }
+]

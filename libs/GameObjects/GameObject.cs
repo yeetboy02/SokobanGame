@@ -13,19 +13,18 @@ public class GameObject : IGameObject, IMovement
 
     public Dialog currDialog = null;
 
-    public GameObjectType Type;
+    public void startDialog() {
+        currDialog = GameEngine.Instance.GetMap().currDialog;
 
-    public void createDialog() {
-        DialogOption option2 = new DialogOption("TestDialog 2", null);
-        Answer[] answers = new Answer[2]{new Answer("Schnitzel", option2), new Answer("Spinatgelee", option2)};
-        DialogOption option1 = new DialogOption("TestDialog 1", answers);
-        this.currDialog = new Dialog(option1);
-        Task dialog = Task.Run(() => {
-            this.currDialog.Run();
+        Task dialogTask = Task.Run(() => {
+            currDialog.Run();
         });
-        dialog.Wait();
-        this.currDialog = null;
+
+        dialogTask.Wait();
+        currDialog = null;
     }
+
+    public GameObjectType Type;
 
     public GameObject() {
         this._posX = 5;
@@ -84,6 +83,8 @@ public class GameObject : IGameObject, IMovement
             _posY += dy;
         }
     }
+
+    public bool nextToNPC = false;
 
     virtual public void onCollision(GameObject obj, GameObject?[,] map) {
 

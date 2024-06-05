@@ -24,6 +24,9 @@ public class GameObjectFactory : IGameObjectFactory
             case (int) GameObjectType.Target:
                 newObj = obj.ToObject<Target>();
                 break;
+            case (int) GameObjectType.NPC:
+                newObj = obj.ToObject<NPC>();
+                break;
         }
 
         return newObj;

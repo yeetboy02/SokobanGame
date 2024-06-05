@@ -20,7 +20,7 @@ public sealed class Player : GameObject {
     }
 
     public override void onCollision(GameObject gameObject, GameObject?[,] map) {
-        if (gameObject.Type == GameObjectType.Obstacle) {
+        if (gameObject.Type == GameObjectType.Obstacle || gameObject.Type == GameObjectType.NPC) {
             this.PosX = this.GetPrevPosX();
             this.PosY = this.GetPrevPosY();
         }

@@ -2,10 +2,13 @@ namespace libs;
 
 public class DialogOption {
     public string text;
-    public Answer[] options;
+    public List<Answer> options = new List<Answer>();
 
-    public DialogOption(string text, Answer[] options) {
+    public DialogOption(string text) {
         this.text = text;
-        this.options = options;
+    }
+
+    public void AddAnswer(Answer answer) {
+        this.options.Add(answer);
     }
 }

@@ -73,6 +73,7 @@ public sealed class GameEngine
 
         dynamic gameData = FileHandler.ReadJson();
         dynamic gameDataSaved = FileHandler.ReadSavedJson();
+        dynamic dialogData = FileHandler.ReadDialogJson();
 
         // checks whether there is a currently saved game and whether it is not bigger than the current level
         initalGameLevel = gameDataSaved.currentLevel; 
@@ -86,6 +87,31 @@ public sealed class GameEngine
         
         map.MapWidth = gameData[currentGameLevel].map.width;
         map.MapHeight = gameData[currentGameLevel].map.height;
+
+
+        // CREATE CURRENT DIALOG
+        var currLevelDialog = dialogData[GameEngine.Instance.GetCurrentLevel()].dialog;
+
+        if (currLevelDialog.Count != 0) {
+            DialogOption[] options = new DialogOption[currLevelDialog.Count];
+
+            for (int i = 0; i < currLevelDialog.Count; i++) {
+                options[i] = new DialogOption((string)currLevelDialog[i].text);
+            }
+
+            for (int i = 0; i < currLevelDialog.Count; i++) {
+                if (currLevelDialog[i].answers != null) {
+                    foreach (var option in currLevelDialog[i].answers) {
+                        options[i].AddAnswer(new Answer((string)option.text, options[option.next]));
+                    }
+                }
+            }
+
+            map.currDialog = new Dialog(options[0]);
+        }
+        else {
+            map.currDialog = null;
+        }
 
 
         gameObjects = new List<GameObject>();
@@ -182,6 +208,15 @@ public sealed class GameEngine
                 return;
             }
         });
+
+        // RENDER THE NPC
+        gameObjects.ForEach(delegate(GameObject obj)
+        {
+            if (obj.Type == GameObjectType.NPC)
+            {
+                map.Set(ref obj);
+            }
+        });
     }
 
     private void DrawObject(GameObject gameObject){
@@ -239,6 +274,13 @@ public sealed class GameEngine
                     }
                 }
             });
+        }
+        GameObject focObj = GameEngine.Instance.GetFocusedObject();
+        if (map.Get(focObj.PosY, focObj.PosX + 1) is NPC || map.Get(focObj.PosY, focObj.PosX - 1) is NPC || map.Get(focObj.PosY + 1, focObj.PosX) is NPC || map.Get(focObj.PosY - 1, focObj.PosX) is NPC) {
+            focObj.nextToNPC = true;
+        }
+        else {
+            focObj.nextToNPC = false;
         }
     }
 

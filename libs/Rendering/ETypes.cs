@@ -4,5 +4,6 @@ public enum GameObjectType
   Obstacle,
   Box,
   Floor,
-  Target
+  Target,
+  NPC
 }

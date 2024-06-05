@@ -9,6 +9,8 @@ public class Map {
 
     public bool resetHistory = false;
 
+    public Dialog? currDialog = null;
+
     private int _mapWidth;
     private int _mapHeight;
 
