@@ -296,13 +296,18 @@ public sealed class GameEngine
     }
 
     public void saveGame() {
-        List<GameObject> gameObjects = new List<GameObject>();
+        // List<GameObject> gameObjects = new List<GameObject>();
         // iterats over all gameobjects in last item of map.history and adds them to the list if not Floor
-        for (int i = 0; i < map.MapWidth; i++) {
-            for (int j = 0; j < map.MapHeight; j++) {
-                if(map.history.Last()[j,i].Type != GameObjectType.Floor) gameObjects.Add(map.history.Last()[j,i]);
-            }
-        }
+        var gameObjects = map.history.Last()
+                .Cast<GameObject>()
+                .Where(obj => obj.Type != GameObjectType.Floor)
+                .ToList();
+
+        // for (int i = 0; i < map.MapWidth; i++) {
+        //     for (int j = 0; j < map.MapHeight; j++) {
+        //         if(map.history.Last()[j,i].Type != GameObjectType.Floor) gameObjects.Add(map.history.Last()[j,i]);
+        //     }
+        // }
 
         // saves current level int and gameobjects in a file
         var gameState = new GameState { currentLevel = currentGameLevel, gameObjects =  gameObjects };

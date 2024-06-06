@@ -55,7 +55,7 @@ class Program
     static private void MainMenu()
     {
         Console.Clear();
-        Console.WriteLine("Welcome to the Console Game!");
+        Console.WriteLine("Welcome to the Sokoban Game of Lukas Gruber and Manuel Prammer");
         Console.WriteLine("Press Enter to start the game...");
         while (Console.ReadKey(true).Key != ConsoleKey.Enter)
         {
