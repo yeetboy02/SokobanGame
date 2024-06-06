@@ -1,34 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "/Users/lukas/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/CD/SokobanGame/game/game.csproj": {}
+    "C:\\Users\\User\\OneDrive - Fachhochschule St. Pölten\\Studium\\Semester 4\\CD\\SokobanGroup\\SokobanGame\\game\\game.csproj": {}
   },
   "projects": {
-    "/Users/lukas/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/CD/SokobanGame/game/game.csproj": {
+    "C:\\Users\\User\\OneDrive - Fachhochschule St. Pölten\\Studium\\Semester 4\\CD\\SokobanGroup\\SokobanGame\\game\\game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/lukas/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/CD/SokobanGame/game/game.csproj",
+        "projectUniqueName": "C:\\Users\\User\\OneDrive - Fachhochschule St. Pölten\\Studium\\Semester 4\\CD\\SokobanGroup\\SokobanGame\\game\\game.csproj",
         "projectName": "game",
-        "projectPath": "/Users/lukas/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/CD/SokobanGame/game/game.csproj",
-        "packagesPath": "/Users/lukas/.nuget/packages/",
-        "outputPath": "/Users/lukas/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/CD/SokobanGame/game/obj/",
+        "projectPath": "C:\\Users\\User\\OneDrive - Fachhochschule St. Pölten\\Studium\\Semester 4\\CD\\SokobanGroup\\SokobanGame\\game\\game.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\OneDrive - Fachhochschule St. Pölten\\Studium\\Semester 4\\CD\\SokobanGroup\\SokobanGame\\game\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/lukas/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/lukas/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/CD/SokobanGame/libs/libs.csproj": {
-                "projectPath": "/Users/lukas/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/CD/SokobanGame/libs/libs.csproj"
+              "C:\\Users\\User\\OneDrive - Fachhochschule St. Pölten\\Studium\\Semester 4\\CD\\SokobanGroup\\SokobanGame\\libs\\libs.csproj": {
+                "projectPath": "C:\\Users\\User\\OneDrive - Fachhochschule St. Pölten\\Studium\\Semester 4\\CD\\SokobanGroup\\SokobanGame\\libs\\libs.csproj"
               }
             }
           }
@@ -40,8 +41,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "imports": [
             "net461",
             "net462",
@@ -58,32 +59,33 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.200/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/lukas/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/CD/SokobanGame/libs/libs.csproj": {
+    "C:\\Users\\User\\OneDrive - Fachhochschule St. Pölten\\Studium\\Semester 4\\CD\\SokobanGroup\\SokobanGame\\libs\\libs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/lukas/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/CD/SokobanGame/libs/libs.csproj",
+        "projectUniqueName": "C:\\Users\\User\\OneDrive - Fachhochschule St. Pölten\\Studium\\Semester 4\\CD\\SokobanGroup\\SokobanGame\\libs\\libs.csproj",
         "projectName": "libs",
-        "projectPath": "/Users/lukas/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/CD/SokobanGame/libs/libs.csproj",
-        "packagesPath": "/Users/lukas/.nuget/packages/",
-        "outputPath": "/Users/lukas/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/CD/SokobanGame/libs/obj/",
+        "projectPath": "C:\\Users\\User\\OneDrive - Fachhochschule St. Pölten\\Studium\\Semester 4\\CD\\SokobanGroup\\SokobanGame\\libs\\libs.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\OneDrive - Fachhochschule St. Pölten\\Studium\\Semester 4\\CD\\SokobanGroup\\SokobanGame\\libs\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/lukas/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -94,8 +96,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Newtonsoft.Json": {
               "target": "Package",
@@ -118,7 +120,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.200/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

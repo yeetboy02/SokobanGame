@@ -6,8 +6,20 @@ using Newtonsoft.Json;
 class Program
 {    
     static private int currLevel = 0;
+    static private bool wasMainMenuDisplayed = false;
     static void Main(string[] args)
     {
+        // Display the main menu
+        if(!wasMainMenuDisplayed){
+            MainMenu();
+
+        }
+
+        StartGame();
+
+    }
+
+    static void StartGame(){
         //Setup
         Console.CursorVisible = false;
         var engine = GameEngine.Instance;
@@ -40,6 +52,18 @@ class Program
         }
     }
 
+    static private void MainMenu()
+    {
+        Console.Clear();
+        Console.WriteLine("Welcome to the Console Game!");
+        Console.WriteLine("Press Enter to start the game...");
+        while (Console.ReadKey(true).Key != ConsoleKey.Enter)
+        {
+            // Wait for the Enter key to be pressed
+        }
+        Console.Clear();
+        wasMainMenuDisplayed = true;
+    }
     static private void nextLevel(GameEngine engine) {
         // remove map history once level completed
         engine.removeHistory();
@@ -79,6 +103,7 @@ class Program
         engine.SetCurrentLevel(currLevel);
         engine.SetRestartGame(false);
 
+        wasMainMenuDisplayed = false;
         Console.Clear();
         Main(null);
     }

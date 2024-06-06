@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "0f2dFuB0wr5DkvSozs3BK5cuoQBb8w6K0LGp34Ph6FQCgAsFhDT6klOhKcvNCCL6RH4wBsptjhYjNB3bWR/wBA==",
+  "dgSpecHash": "RsbcxvkU6Ph413eyjCytSSBMoQssd6ehVOTdGyS4axZvmOqjxYv08qyTmr65g+COG+81ORYT+kmRnjqMnTcLow==",
   "success": true,
-  "projectFilePath": "/Users/lukas/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/CD/SokobanGame/game/game.csproj",
+  "projectFilePath": "C:\\Users\\User\\OneDrive - Fachhochschule St. Pölten\\Studium\\Semester 4\\CD\\SokobanGroup\\SokobanGame\\game\\game.csproj",
   "expectedPackageFiles": [
-    "/Users/lukas/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\User\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }
